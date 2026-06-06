@@ -525,78 +525,51 @@ footer {
 
 <div class="section-label">Nous écrire</div>
 <h2 class="section-title">Contactez-<span>nous</span></h2>
-<div class="section-divider" style="margin-bottom:28px;"></div>
 
-<form id="contactForm" action="https://formspree.io/f/xaqzenal" method="POST">
+<form action="https://formspree.io/f/xaqzenal" method="POST">
 
 <div class="form-group">
-<label for="nom">Nom complet</label>
-<input type="text" id="nom" name="nom" placeholder="Votre nom" required>
-</div>
-
-<div class="form-row">
-<div class="form-group">
-<label for="email">Email</label>
-<input type="email" id="email" name="email" placeholder="votre@email.com" required>
+<label>Nom complet</label>
+<input type="text" name="nom" required>
 </div>
 
 <div class="form-group">
-<label for="telephone">Téléphone</label>
-<input type="tel" id="telephone" name="telephone" placeholder="+33 6 ...">
-</div>
+<label>Email</label>
+<input type="email" name="email" required>
 </div>
 
 <div class="form-group">
-<label for="type_bien">Type de bien</label>
-<select id="type_bien" name="type_bien" required>
-<option value="">Choisissez un type de bien</option>
-<option value="Appartement">Appartement</option>
-<option value="Villa">Villa</option>
-<option value="Studio">Studio</option>
-<option value="Autre">Autre</option>
+<label>Téléphone</label>
+<input type="tel" name="telephone">
+</div>
+
+<div class="form-group">
+<label>Type de bien</label>
+<select name="type_bien" required>
+<option value="">Choisir</option>
+<option>Appartement</option>
+<option>Villa</option>
+<option>Studio</option>
+<option>Autre</option>
 </select>
 </div>
 
 <div class="form-group">
-<label for="message">Message</label>
-<textarea id="message" name="message" placeholder="Décrivez votre bien et vos attentes." required></textarea>
+<label>Message</label>
+<textarea name="message" required></textarea>
 </div>
 
-<button type="submit" class="btn-gold" style="border:none;cursor:pointer;width:100%;">
+<!-- message de succès Formspree -->
+<input type="hidden" name="_next" value="https://gojos891-cpu.github.io/Serenity-home/">
+
+<button type="submit" class="btn-gold" style="width:100%;border:none;cursor:pointer;">
 Envoyer ma demande
 </button>
-
-<p id="successMessage" style="display:none;color:green;margin-top:15px;font-weight:bold;">
-✔ Votre demande a bien été envoyée !
-</p>
 
 </form>
 
 </div>
 </div>
-
-<!-- SCRIPT ENVOI FORMULAIRE -->
-<script>
-document.getElementById("contactForm").addEventListener("submit", async function(e) {
-e.preventDefault();
-
-const form = e.target;
-const data = new FormData(form);
-
-const response = await fetch(form.action, {
-method: "POST",
-body: data,
-headers: { 'Accept': 'application/json' }
-});
-
-if (response.ok) {
-document.getElementById("successMessage").style.display = "block";
-form.reset();
-} else {
-alert("Erreur lors de l'envoi, réessayez.");
-}
-});
-</script>
 
 <!-- ══ FOOTER ══ -->
 <footer>
